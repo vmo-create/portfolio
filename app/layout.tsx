@@ -5,10 +5,10 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const robotoMono = Roboto_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
+// const robotoMono = Roboto_Mono({
+//   subsets: ["latin"],
+//   weight: ["400", "500"],
+// });
 
 export const metadata: Metadata = {
   title: "Vanessa Moras - Senior UX Designer",
@@ -22,17 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={robotoMono.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
-          {children}
-        </ThemeProvider>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

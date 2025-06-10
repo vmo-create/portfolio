@@ -1,37 +1,102 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
+
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 const Hero = () => {
-  return (
-    <main className="w-full  h-screen overflow-hidden">
-      <div className="max-w-7xl mx-auto ">
-        <div className="w-full flex justify-between items-center flex-wrap">
-          <motion.div
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 1.1 }}
-            drag="x"
-            dragConstraints={{ left: -100, right: 100 }}
-            className="flex flex-col gap-[24px]"
-          >
-            <h1 className="text-[40px] font-normal leading-[60px]">
-              A user experience <br />
-              designer at Accenture
-            </h1>
+  const projects = [
+    {
+      id: 1,
+      title: "First project",
+      year: "2025",
+      gradient: "from-blue-400 via-blue-500 to-green-400",
+    },
+    {
+      id: 2,
+      title: "First project",
+      year: "2025",
+      gradient: "from-green-400 via-teal-500 to-yellow-400",
+    },
+    {
+      id: 3,
+      title: "First project",
+      year: "2025",
+      gradient: "from-blue-400 via-blue-500 to-green-400",
+    },
+    {
+      id: 4,
+      title: "First project",
+      year: "2025",
+      gradient: "from-green-400 via-teal-500 to-yellow-400",
+    },
+  ];
 
-            <h2 className="text-primary-foreground text-opacity-25 text-[36px] font-normal leading-[54px]">
-              Based in Philippines
-              <br /> designing inclusive products <br />
-              and services for people
-            </h2>
-          </motion.div>
-          <div className="flex flex-col gap-[40px] mt-[120px]">
-            <div className="w-[469px] h-[455px] bg-secondary"></div>
-            <div className="w-[469px] h-[455px] bg-primary"></div>
-          </div>
+  return (
+    <div className="min-h-screen bg-background px-8 py-12 max-w-4xl mx-auto">
+      {/* Hero Section */}
+      <section className="mb-24">
+        <h1 className="text-4xl font-bold mb-2 text-foreground">
+          Vanessa Larriane Moras
+        </h1>
+        <p className="text-lg text-muted-foreground mb-12">
+          Senior UX Designer
+        </p>
+
+        <div className="mb-8 max-w-md">
+          <p className="text-base leading-relaxed text-foreground mb-8">
+            A seasoned Senior UX Designer with 7+ years of experience,
+            <br />
+            I excel in leading complex marketing and design projects
+            <br />
+            from concept to completion.
+          </p>
         </div>
-      </div>
-    </main>
+
+        <Button variant="outline" size="default" className="text-foreground">
+          Get a copy of my resume
+        </Button>
+      </section>
+
+      {/* Selected Works Section */}
+      <section className="mb-24">
+        <h2 className="text-2xl font-bold mb-8 text-foreground">
+          Selected works
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {projects.map((project) => (
+            <div key={project.id} className="group cursor-pointer">
+              <div
+                className={`h-48 bg-gradient-to-br ${project.gradient} rounded-lg mb-4 transition-all duration-300 group-hover:scale-[1.02]`}
+              ></div>
+              <div className="flex justify-between items-center">
+                <h3 className="text-base font-medium text-foreground">
+                  {project.title}
+                </h3>
+                <span className="text-base text-muted-foreground">
+                  {project.year}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section>
+        <h2 className="text-2xl font-bold mb-6 text-foreground">
+          Lets connect
+        </h2>
+
+        <div className="space-y-2">
+          <div className="text-foreground text-base">https.vmo@gmail.com</div>
+
+          <div className="text-foreground text-base">(63) 960-447-4541</div>
+
+          <div className="text-foreground text-base">LinkedIn</div>
+        </div>
+      </section>
+    </div>
   );
 };
 
