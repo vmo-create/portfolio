@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import Link from "next/link";
 
 const Hero = () => {
   const projects = [
@@ -10,24 +11,28 @@ const Hero = () => {
       title: "First project",
       year: "2025",
       gradient: "from-blue-400 via-blue-500 to-green-400",
+      route: "/card-1",
     },
     {
       id: 2,
       title: "First project",
       year: "2025",
       gradient: "from-green-400 via-teal-500 to-yellow-400",
+      route: "/card-2",
     },
     {
       id: 3,
       title: "First project",
       year: "2025",
       gradient: "from-blue-400 via-blue-500 to-green-400",
+      route: "/card-3",
     },
     {
       id: 4,
       title: "First project",
       year: "2025",
       gradient: "from-green-400 via-teal-500 to-yellow-400",
+      route: "/card-4",
     },
   ];
 
@@ -65,19 +70,21 @@ const Hero = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project) => (
-            <div key={project.id} className="group cursor-pointer">
-              <div
-                className={`h-48 bg-gradient-to-br ${project.gradient} rounded-lg mb-4 transition-all duration-300 group-hover:scale-[1.02]`}
-              ></div>
-              <div className="flex justify-between items-center">
-                <h3 className="text-base font-medium text-foreground">
-                  {project.title}
-                </h3>
-                <span className="text-base text-muted-foreground">
-                  {project.year}
-                </span>
+            <Link href={project.route} key={project.id}>
+              <div key={project.id} className="group cursor-pointer">
+                <div
+                  className={`h-48 bg-gradient-to-br ${project.gradient} rounded-lg mb-4 transition-all duration-300 group-hover:scale-[1.02]`}
+                ></div>
+                <div className="flex justify-between items-center">
+                  <h3 className="text-base font-medium text-foreground">
+                    {project.title}
+                  </h3>
+                  <span className="text-base text-muted-foreground">
+                    {project.year}
+                  </span>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
